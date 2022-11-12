@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="res.partner" id="lukas_partner">
+        <field name="parent_id" eval="ref('base.partner_root')"/>
+        <field name="name">Lukas</field>
+        <field name="is_company">False</field>
+        <field name="email">lukas@protonmail.ch</field>
+        <field name="forename">Lukáš</field>
+        <field name="surname">N</field>
+    </record>
+
+    <record model="res.partner" id="adam_partner">
+        <field name="parent_id" eval="ref('base.partner_root')"/>
+        <field name="name">Adam</field>
+        <field name="is_company">False</field>
+        <field name="email">adam@protonmail.ch</field>
+        <field name="forename">Adam</field>
+        <field name="surname">N</field>
+    </record>
+
+    <record model="res.partner" id="martin_partner">
+        <field name="parent_id" eval="ref('base.partner_root')"/>
+        <field name="name">Martin</field>
+        <field name="is_company">False</field>
+        <field name="email">martin@protonmail.ch</field>
+        <field name="forename">Martin</field>
+        <field name="surname">O</field>
+    </record>
+
+    <record model="res.partner" id="eva_partner">
+        <field name="parent_id" eval="ref('base.partner_root')"/>
+        <field name="name">Eva</field>
+        <field name="is_company">False</field>
+        <field name="email">eva@protonmail.ch</field>
+        <field name="forename">Eva</field>
+        <field name="surname">Ch</field>
+    </record>
+
+    <record model="res.partner" id="kamila_partner">
+        <field name="parent_id" eval="ref('base.partner_root')"/>
+        <field name="name">Kamila</field>
+        <field name="is_company">False</field>
+        <field name="email">kamila@protonmail.ch</field>
+        <field name="forename">Kamila</field>
+        <field name="surname">V</field>
+    </record>
+
+</odoo>

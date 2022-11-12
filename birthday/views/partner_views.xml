@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Inherited Form -->
+    <record id="birthday_res_partner_inherit_form" model="ir.ui.view">
+        <field name="name">svatky.res.partner.inherit.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="birthday" string="Birthday Date" widget="datepicker"/>
+                <field name="birthday_notification" string="Allow Birthday Notification"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

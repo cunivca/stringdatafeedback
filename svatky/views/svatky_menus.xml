@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- This menu is shown on Main menu -->
+    <menuitem id="svatky_root_menu" name="Svátky">
+
+        <!-- This menu item is shown in app on main menu tray -->
+        <menuitem id="svatky_configuration_menu" name="Configuration">
+
+            <!-- This menu item is shown in parent menu -->
+            <menuitem id="svatky_nameday_menu" name="Localization" action="nameday_action"/>
+        </menuitem>
+
+    </menuitem>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Action -->
+    <record id="nameday_action" model="ir.actions.act_window">
+        <field name="name">Nameday</field>
+        <field name="res_model">partner.nameday</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            At first define a new estate property type
+          </p>
+        </field>
+    </record>
+
+    <!-- Tree -->
+    <record id="svatky_nameday_tree" model="ir.ui.view">
+        <field name="name">svatky.nameday.tree</field>
+        <field name="model">partner.nameday</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="country_id" string="Country"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="nameday_view_form" model="ir.ui.view">
+        <field name="name">svatky.nameday.form</field>
+        <field name="model">partner.nameday</field>
+        <field name="arch" type="xml">
+            <form string="Nameday">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="country_id" string="Country"/>
+                        <field name="date"/>
+                        <field name="vocative" attrs="{'invisible': [('country_id', '!=', 56)]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
