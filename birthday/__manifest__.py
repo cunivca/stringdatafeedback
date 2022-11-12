@@ -5,7 +5,7 @@
     'category': 'Birthday',
     'complexity': 'easy',
     'Summary': 'A Module For a birthday wishes',
-    'depends': ['base'],
+    'depends': ['base','svatky'],
     'data': [
         'views/partner_views.xml',
         'data/mail_template_data.xml',
