@@ -1,0 +1,197 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* partner_ares
+# 
+# Translators:
+# Wichanon Jamwutthipreecha, 2022
+# Martin Trigaux, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server saas~15.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-11 14:34+0000\n"
+"PO-Revision-Date: 2022-09-22 05:53+0000\n"
+"Last-Translator: Martin Trigaux, 2022\n"
+"Language-Team: Thai (https://www.transifex.com/odoo/teams/41243/th/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: th\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: partner_ares
+#: model:ir.model.fields,field_description:partner_ares.field_res_partner__additional_info
+#: model:ir.model.fields,field_description:partner_ares.field_res_users__additional_info
+msgid "Additional info"
+msgstr "Additional info"
+
+#. module: partner_ares
+#. openerp-web
+#: code:addons/partner_ares/static/src/xml/partner_ares.xml:0
+#, python-format
+msgid "Buy more credits"
+msgstr "Buy more credits"
+
+#. module: partner_ares
+#: model:ir.model,name:partner_ares.model_res_company
+msgid "Companies"
+msgstr "หลายบริษัท"
+
+#. module: partner_ares
+#: code:addons/partner_ares/models/res_company.py:0
+#, python-format
+msgid "Company auto-completed by Odoo Partner Autocomplete Service"
+msgstr ""
+
+#. module: partner_ares
+#: model:ir.model.fields,field_description:partner_ares.field_res_company__partner_gid
+#: model:ir.model.fields,field_description:partner_ares.field_res_partner__partner_gid
+#: model:ir.model.fields,field_description:partner_ares.field_res_users__partner_gid
+msgid "Company database ID"
+msgstr "Company database ID"
+
+#. module: partner_ares
+#: model:ir.model,name:partner_ares.model_res_config_settings
+msgid "Config Settings"
+msgstr "ตั้งค่าการกำหนดค่า"
+
+#. module: partner_ares
+#: model:ir.model,name:partner_ares.model_res_partner
+msgid "Contact"
+msgstr "ติดต่อ"
+
+#. module: partner_ares
+#: model:ir.model.fields,field_description:partner_ares.field_res_partner_ares_sync__create_uid
+msgid "Created by"
+msgstr "สร้างโดย"
+
+#. module: partner_ares
+#: model:ir.model.fields,field_description:partner_ares.field_res_partner_ares_sync__create_date
+msgid "Created on"
+msgstr "สร้างเมื่อ"
+
+#. module: partner_ares
+#: model:ir.model.fields,field_description:partner_ares.field_res_partner_ares_sync__display_name
+msgid "Display Name"
+msgstr "แสดงชื่อ"
+
+#. module: partner_ares
+#: model:ir.model.fields,field_description:partner_ares.field_res_company__iap_enrich_auto_done
+msgid "Enrich Done"
+msgstr ""
+
+#. module: partner_ares
+#: model:ir.model,name:partner_ares.model_ir_http
+msgid "HTTP Routing"
+msgstr "การกำหนด HTTP"
+
+#. module: partner_ares
+#: model:ir.model,name:partner_ares.model_iap_account
+msgid "IAP Account"
+msgstr ""
+
+#. module: partner_ares
+#. openerp-web
+#: code:addons/partner_ares/static/src/js/partner_ares_core.js:0
+#, python-format
+msgid "IAP Account Token missing"
+msgstr "IAP Account Token missing"
+
+#. module: partner_ares
+#: model:ir.model,name:partner_ares.model_iap_autocomplete_api
+msgid "IAP Partner Autocomplete API"
+msgstr ""
+
+#. module: partner_ares
+#: model:ir.model.fields,field_description:partner_ares.field_res_partner_ares_sync__id
+msgid "ID"
+msgstr "ไอดี"
+
+#. module: partner_ares
+#: model:ir.model.fields,field_description:partner_ares.field_res_config_settings__partner_ares_insufficient_credit
+msgid "Insufficient credit"
+msgstr "Insufficient credit"
+
+#. module: partner_ares
+#: model:ir.model.fields,field_description:partner_ares.field_res_partner_ares_sync__synched
+msgid "Is synched"
+msgstr "Is synched"
+
+#. module: partner_ares
+#: model:ir.model.fields,field_description:partner_ares.field_res_partner_ares_sync____last_update
+msgid "Last Modified on"
+msgstr "แก้ไขครั้งล่าสุดเมื่อ"
+
+#. module: partner_ares
+#: model:ir.model.fields,field_description:partner_ares.field_res_partner_ares_sync__write_uid
+msgid "Last Updated by"
+msgstr "อัปเดตครั้งล่าสุดโดย"
+
+#. module: partner_ares
+#: model:ir.model.fields,field_description:partner_ares.field_res_partner_ares_sync__write_date
+msgid "Last Updated on"
+msgstr "อัปเดตครั้งล่าสุดเมื่อ"
+
+#. module: partner_ares
+#: code:addons/partner_ares/models/iap_autocomplete_api.py:0
+#, python-format
+msgid "No account token"
+msgstr ""
+
+#. module: partner_ares
+#. openerp-web
+#: code:addons/partner_ares/static/src/js/partner_ares_core.js:0
+#, python-format
+msgid "Not enough credits for Partner Autocomplete"
+msgstr "Not enough credits for Partner Autocomplete"
+
+#. module: partner_ares
+#: model:ir.model.fields,field_description:partner_ares.field_res_partner_ares_sync__partner_id
+msgid "Partner"
+msgstr "พาร์ทเนอร์"
+
+#. module: partner_ares
+#: model:ir.actions.server,name:partner_ares.ir_cron_partner_ares_ir_actions_server
+#: model:ir.cron,cron_name:partner_ares.ir_cron_partner_ares
+#: model:ir.cron,name:partner_ares.ir_cron_partner_ares
+msgid "Partner Autocomplete : Sync with remote DB"
+msgstr "Partner Autocomplete : Sync with remote DB"
+
+#. module: partner_ares
+#: model:ir.model,name:partner_ares.model_res_partner_ares_sync
+msgid "Partner Autocomplete Sync"
+msgstr "Partner Autocomplete Sync"
+
+#. module: partner_ares
+#: code:addons/partner_ares/models/res_partner.py:0
+#, python-format
+msgid "Partner created by Odoo Partner Autocomplete Service"
+msgstr "Partner created by Odoo Partner Autocomplete Service"
+
+#. module: partner_ares
+#. openerp-web
+#: code:addons/partner_ares/static/src/xml/partner_ares.xml:0
+#, python-format
+msgid "Placeholder"
+msgstr "ตัวอย่างข้อความ"
+
+#. module: partner_ares
+#. openerp-web
+#: code:addons/partner_ares/static/src/js/partner_ares_many2one.js:0
+#, python-format
+msgid "Searching Autocomplete..."
+msgstr "Searching Autocomplete..."
+
+#. module: partner_ares
+#. openerp-web
+#: code:addons/partner_ares/static/src/xml/partner_ares.xml:0
+#, python-format
+msgid "Set Your Account Token"
+msgstr "Set Your Account Token"
+
+#. module: partner_ares
+#: code:addons/partner_ares/models/iap_autocomplete_api.py:0
+#, python-format
+msgid "Test mode"
+msgstr ""
