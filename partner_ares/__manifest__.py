@@ -22,7 +22,7 @@
             'partner_ares/static/src/xml/*',
         ],
         'web.tests_assets': [
-            'partner_ares/static/lib/**/*',
+            'partner_ares/static/src/lib/**/*',
         ],
         # 'web.qunit_suite_tests': [
         #     'partner_ares/static/tests/**/*',
