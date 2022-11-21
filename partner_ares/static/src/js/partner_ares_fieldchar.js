@@ -50,7 +50,7 @@ export class PartnerAutoCompleteCharField extends CharField {
                 options: async (request) => {
 
                     // Lazyload jsvat only if the component is being used.
-                    await loadJS("/partner_ares/static/lib/jsvat.js");
+                    await loadJS("/partner_ares/static/src/lib/jsvat.js");
 
                     // Pokud jsou v inputu aspon 3 znaky, nebo je ve vat cele platne cislo vat
                     if (this.validateSearchTerm(request)) {
