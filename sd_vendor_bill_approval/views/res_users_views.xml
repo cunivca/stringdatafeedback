@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!-- todo nemuzu najit inherited view a hazi to  -->
+        <!-- todo '<xpath expr="//group[hasclass(&#39;o_label_nowrap&#39;)]/group[3]">' cannot be located in parent view  -->
+<!--    <record id="sd_view_user_groups_inherited" model="ir.ui.view">-->
+<!--        <field name="name">sd.view.user.groups.inherited</field>-->
+<!--        <field name="model">res.users</field>-->
+<!--        <field name="inherit_id" ref="base.user_groups_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//group[hasclass('o_label_nowrap')]/group[3]" position="inside">-->
+
+<!--                &lt;!&ndash; New checkbox fields for new 'roles' &ndash;&gt;-->
+<!--                <field-->
+<!--                    name="approver_cfo"-->
+<!--                    string="Schvalovatel CFO"-->
+<!--                />-->
+<!--                <field-->
+<!--                    name="payments_approver"-->
+<!--                    string="Schvalovatel plateb"-->
+<!--                />-->
+
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <!--  Insert new checkbox on Access Rights page  -->
+    <record id="sd_view_user_groups_inherited" model="ir.ui.view">
+        <field name="name">sd.view.user.groups.inherited</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='access_rights']" position="inside">
+                <group>
+                    <field name="approver_cfo" string="Schvalovatel CFO"/>
+                    <field name="payments_approver" string="Schvalovatel plateb"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

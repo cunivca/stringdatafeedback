@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_move_form_inherit" model="ir.ui.view">
+        <field name="name">account.move.form.inherited</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+
+            <!-- New buttoms in header for approving or declining -->
+            <xpath expr="//header" position="inside">
+
+                <button
+                        string="Nová"
+                        type="object"
+                        name="action_to_new"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('approve_state', '!=', 'zamitnuta')]}"
+                        groups="account.group_account_manager"
+                />
+
+                <button
+                        string="Ke schválení"
+                        type="object"
+                        name="action_to_approval"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('approve_state', 'not in', ['nova'])]}"
+                />
+
+                <button string="Ke schválení CFO"
+                        type="object"
+                        name="action_to_approval_cfo"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('approve_state', 'not in', ['nova', 'ke_schvaleni'])]}"
+                        groups="sd_vendor_bill_approval.sd_vendor_bill_approval_project_owner, account.group_account_manager"
+                />
+
+                <button string="Ke schválení platby" type="object"
+                        name="action_to_approval_payment"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('approve_state', '!=', 'cfo')]}"
+                        groups="account.group_account_manager"
+                />
+
+                <button string="Schválit platbu"
+                        type="object"
+                        name="action_approve_payment"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('approve_state', 'not in', ['cfo', 'platba'])]}"
+                        groups="account.group_account_manager"
+                />
+
+                <button
+                        string="Zamítnout"
+                        type="object"
+                        name="action_reject"
+                        attrs="{'invisible': [('approve_state', 'in', ['schvaleno', 'zamitnuta'])]}"
+                />
+
+            </xpath>
+
+
+            <!-- New fields for approvers with their dates -->
+            <xpath expr="//group[@id='header_left_group']" position="inside">
+
+                <label for="projects_approver" string="Schvalovatel projektů"/>
+                <div name="project_approver" class="d-flex">
+                    <field name="projects_approver"
+                           attrs="{'readonly': [('project_approved_date', '!=', False)]}"
+                    />
+                    <span class="oe_inline o_form_label mx-3">datum</span>
+                    <field name="project_approved_date"/>
+                </div>
+
+                <label for="cfo_approver" string="Schvalovatel CFO"/>
+                <div name="cfo_approver" class="d-flex">
+                    <field name="cfo_approver"
+                           attrs="{'readonly': [('cfo_approved_date', '!=', False)]}"
+                    />
+                    <span class="oe_inline o_form_label mx-3">datum</span>
+                    <field name="cfo_approved_date"/>
+                </div>
+
+                <label for="payments_approver" string="Schvalovatel plateb"/>
+                <div name="payments_approver" class="d-flex">
+                    <field name="payments_approver"
+                           attrs="{'readonly': [('payment_approved_date', '!=', False)]}"
+                    />
+                    <span class="oe_inline o_form_label mx-3">datum</span>
+                    <field name="payment_approved_date"/>
+                </div>
+
+            </xpath>
+
+
+            <!-- New field with state of approval -->
+            <xpath expr="//sheet/widget[@name='web_ribbon']" position="before">
+                <group>
+                    <field name="approve_state" string="Stav schválení"/>
+                </group>
+            </xpath>
+
+            <!-- Disable Confirm button if approve state is not approved-->
+            <xpath expr="//form/header/button[2]" position="replace">
+                <button name="action_post"
+                        string="Confirm"
+                        class="oe_highlight"
+                        type="object"
+                        groups="account.group_account_invoice"
+                        data-hotkey="v"
+                        context="{'validate_analytic': True}"
+                        attrs="{'invisible': ['|', '|', '|', ('hide_post_button', '=', True), ('move_type', '=', 'entry'), ('display_inactive_currency_warning','=',True), ('approve_state','!=', 'schvaleno')]}"
+                />
+            </xpath>
+
+            <!-- todo nedaří se mi, aby se tlačítko zobrazilo, pokud je vendor bill ve stavu zamitnuto-->
+            <!-- Disable Cancel button if approve state is not denied-->
+            <!--            <xpath expr="//form/header/button[@name='button_cancel'][2]" position="replace">-->
+            <!--                <button name="button_cancel"-->
+            <!--                        string="Cancel Entry"-->
+            <!--                        type="object"-->
+            <!--                        groups="account.group_account_invoice"-->
+            <!--                        data-hotkey="w"-->
+            <!--                        attrs="{'invisible': ['|', '|', '|', ('id', '=', False), ('state', '!=', 'draft'), ('move_type', '!=', 'entry'), ('approve_state','!=', 'zamitnuta')]}"/>-->
+            <!--            </xpath>-->
+
+        </field>
+    </record>
+
+    <!-- Add state of approval in tree list view-->
+    <record id="sd_view_invoice_tree_inherited" model="ir.ui.view">
+        <field name="name">sd.view.invoice.tree.inherited</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+
+            <!-- Add custom colors -->
+            <xpath expr="//tree/field[@name='payment_state']" position="before">
+                <field name="approve_state"
+                       string="Stav schválení"
+                       widget="badge"
+                       decoration-info="approve_state == 'nova'"
+                       decoration-warning="approve_state in ('ke_schvaleni', 'cfo', 'platba')"
+                       decoration-success="approve_state == 'schvaleno'"
+                       decoration-danger="approve_state == 'zamitnuta'"
+                />
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- todo Add new users groups access to menu -->
+    <!--    <record id="access_menu_vendor_bills0" model="ir.ui.view">-->
+    <!--        <field name="model">account.move</field>-->
+    <!--        <field name="inherit_id" ref="account.menu_action_move_in_invoice_type"/>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+</odoo>

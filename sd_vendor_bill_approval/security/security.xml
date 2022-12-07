@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+    <!-- Project Manager -->
+    <record id="sd_vendor_bill_approval_project_owner" model="res.groups">
+        <field name="name">Vlastník projektu</field>
+        <field name="category_id" ref="base.module_category_accounting_accounting"/>
+    </record>
+
+    <!-- Project Manager may see only his Vendor bills to approve -->
+    <record id="project_owner_only_his_access_rule" model="ir.rule">
+        <field name="name">See only his Vendor Bills</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="domain_force">[('projects_approver.id', '=', user.id), ('approve_state', '=', 'ke_schvaleni')]</field>
+        <field name="groups" eval="[(4, ref('sd_vendor_bill_approval_project_owner'))]"/>
+    </record>
+
+    <!-- See all account.move.lines -->
+    <record id="project_owner_all_account_move_line_rule" model="ir.rule">
+        <field name="name">See all account move lines</field>
+        <field name="model_id" ref="account.model_account_move_line"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('sd_vendor_bill_approval_project_owner'))]"/>
+    </record>
+
+</odoo>

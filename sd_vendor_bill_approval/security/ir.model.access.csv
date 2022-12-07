@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_move_project_owner,access.account.move.project.owner,model_account_move,sd_vendor_bill_approval.sd_vendor_bill_approval_project_owner,1,1,0,0
+access_account_move_line_project_owner,access.account.move.line.project.owner,account.model_account_move_line,sd_vendor_bill_approval.sd_vendor_bill_approval_project_owner,1,1,1,1
