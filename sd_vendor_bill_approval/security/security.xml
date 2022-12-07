@@ -9,11 +9,12 @@
 
     <!-- Project Manager may see only his Vendor bills to approve -->
     <record id="project_owner_only_his_access_rule" model="ir.rule">
-        <field name="name">See only his Vendor Bills</field>
-        <field name="model_id" ref="account.model_account_move"/>
-        <field name="domain_force">[('projects_approver.id', '=', user.id), ('approve_state', '=', 'ke_schvaleni')]</field>
-        <field name="groups" eval="[(4, ref('sd_vendor_bill_approval_project_owner'))]"/>
-    </record>
+		<field name="name">See only his Vendor Bills</field>
+		<field name="model_id" ref="account.model_account_move"/>
+		<field name="domain_force">[('projects_approver.id', '=', user.id)]</field>
+		<field name="groups" eval="[(4, ref('sd_vendor_bill_approval_project_owner'))]"/>
+	</record>
+
 
     <!-- See all account.move.lines -->
     <record id="project_owner_all_account_move_line_rule" model="ir.rule">
